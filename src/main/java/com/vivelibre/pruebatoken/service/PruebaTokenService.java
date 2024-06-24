@@ -12,12 +12,18 @@ import java.time.LocalDate;
 @Service
 public class PruebaTokenService {
     
-    public PruebaTokenUtils pruebaTokenUtils = new PruebaTokenUtils();
+    public PruebaTokenUtils pruebaTokenUtils;
     
-    public PruebaTokenConstant pruebaTokenConstant = new PruebaTokenConstant();
+    public PruebaTokenConstant pruebaTokenConstant;
     
+    public PruebaTokenConsumer pruebaTokenConsumer;
+
     @Autowired
-    public PruebaTokenConsumer pruebaTokenConsumer = new PruebaTokenConsumer();
+    public PruebaTokenService(PruebaTokenUtils pruebaTokenUtils, PruebaTokenConstant pruebaTokenConstant, PruebaTokenConsumer pruebaTokenConsumer) {
+        this.pruebaTokenUtils = pruebaTokenUtils;
+        this.pruebaTokenConstant = pruebaTokenConstant;
+        this.pruebaTokenConsumer = pruebaTokenConsumer;
+    }
     
     public PruebaTokenResponse obtenerToken(){
 
